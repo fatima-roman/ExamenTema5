@@ -1,1 +1,78 @@
 UML
+
+<<interface>> Ajustable 
+---------------------------
++ subir()
++ bajar()
+
+
+<<exception>> DispositivoApagadoException
+-------------------------------------------
++ DispositivoApagadoException() 
++ getMessage() : String    
+
+<<enumeration>> ModoAire 
+------------------------------
+FRIO      
+CALOR     
+
+
+<<abstract>> MandosADistancia
+| # modelo : String                           
+| # precio: double                           
+| # encendido: boolean = false                 
++------------------------------------------------------
+| + Dispositivo(nombreComercial:String, marca:String, precio:double)          
+| + encender() : void                                  
+| + apagar() : void                                    
+| + getNombreComercial() : String                      
+| + getMarca() : String                                
+| + getPrecio() : double                               
+| + isEncendido() : boolean                            
+| + toString() : String                                
+| + equals(obj : Object) : boolean                     
+| + compareTo(o : Dispositivo) : int    
+
+
+
+MandosTV extends MandosADistancia
+- canal: int 
+- volumen: int 
+--------------------------------------
++ subir()
++ bajar()
++ cambiarCanal()
++ toString() : String           
+**Considero canal int se entiende teclado numerico en mando
+
+
+
+MandoMinicadena extends MandosADistancia
+- volumen: int
+----------------------------------------
++ subir()
++ bajar()
++ toString() : String           
+
+
+MandoAspiradora extends MandosADistancia
+- velocidad: int
+----------------------------------------
++ subir()
++ bajar()
++ toString() : String           
+
+
+
+MandoAireAcondicionado extends MandosADistancia
+- modo : modoAire
+- temperatura: int 
+- velocidad: int 
+-----------------------------------------------
++ cambiarTemperatura(int temp)
++ cambiarModo()
++ subir()
++ bajar()
++ toString() : String           
+
+
